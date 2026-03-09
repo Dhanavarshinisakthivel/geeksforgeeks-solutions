@@ -13,6 +13,11 @@ Input: nums = [1, 2, 3, 4]
 Output: false
 
 
+
+
+Solution: 
+
+
 class Solution {
     public boolean hasDuplicate(int[] nums)
      {
