@@ -19,6 +19,9 @@ Constraints:
 1 <= nums[i] <= 1000
 
 
+Solution: 
+
+
 class Solution 
 {
     public int[] getConcatenation(int[] nums)
