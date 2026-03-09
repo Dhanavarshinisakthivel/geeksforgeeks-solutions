@@ -18,6 +18,12 @@ Constraints:
 2 <= s.length <= 100
 s is made up of lowercase English letters.
 
+
+
+Solution:
+
+
+
 class Solution 
 {
     public int scoreOfString(String s) 
