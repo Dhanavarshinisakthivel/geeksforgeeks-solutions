@@ -1,0 +1,90 @@
+Parity-Binary Sort
+
+Problem
+You are given an array 
+ of 
+ integers. Your task is to implement a sorting algorithm that arranges the numbers in the array based on following conditions and return that array:
+1. Numbers with an even count of set bits should appear first in ascending order.
+2. Following that, numbers with an odd count of set bits should be arranged in ascending order.
+
+Input Format:
+
+Note: This is the input format that you must use to provide custom input (available above the Compile and Test button).
+
+The first line contains 
+ denoting the number of test cases. 
+ also specifies the number of times you have to run the solve function on a different set of inputs.
+For each test case:
+
+The first line contains the integer 
+.
+The second line contains the array 
+ of length 
+Output Format:
+For each test case, print the answer in a new line. 
+
+Constraints:
+
+
+Sample Input
+1
+6
+5 2 8 12 7 6
+Sample Output
+5 6 12 2 7 8
+
+
+solutions
+
+import java.util.*;
+
+public class Main {
+
+    public static int countBits(int n) {
+        int count = 0;
+        while(n > 0) {
+            if(n % 2 == 1)
+                count++;
+            n = n / 2;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while(t-- > 0) {
+
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+
+            for(int i = 0; i < n; i++)
+                arr[i] = sc.nextInt();
+
+            ArrayList<Integer> even = new ArrayList<>();
+            ArrayList<Integer> odd = new ArrayList<>();
+
+            for(int i = 0; i < n; i++) {
+                int bits = countBits(arr[i]);
+
+                if(bits % 2 == 0)
+                    even.add(arr[i]);
+                else
+                    odd.add(arr[i]);
+            }
+
+            Collections.sort(even);
+            Collections.sort(odd);
+
+            for(int x : even)
+                System.out.print(x + " ");
+
+            for(int x : odd)
+                System.out.print(x + " ");
+
+            System.out.println();
+        }
+    }
+}
