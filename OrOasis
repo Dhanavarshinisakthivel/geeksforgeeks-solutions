@@ -1,0 +1,105 @@
+OrOasis
+
+Problem
+Consider an array A with N elements. The task is to identify the shortest possible contiguous subarray where the Bitwise OR of the elements within the subarray equals the Bitwise OR of the elements outside the subarray. Additionally, determine the count of all such minimal-length subarrays that meet this condition.
+
+Note:
+
+The subarray of 
+ is a contiguous part of the array 
+, i. e. the array 
+ for some 
+.
+If in the given array there exists no such subarray for which the Bitwise OR of the elements within the subarray equals the Bitwise OR of the elements, print a single integer 
+.
+Input format
+
+The first line contains a single integer 
+, which denotes the number of test cases.
+For each test case:
+The first line contains 
+ denoting the size of array 
+.
+The second line contains 
+ space-separated integers, denoting the elements of 
+.
+Output format
+
+For each test case, If the answer exists, print 2 integers, where the first one is the shortest possible contiguous subarray where the Bitwise OR of the elements within the subarray equals the Bitwise OR of the elements outside the subarray, & the second one is the count of all such minimal-length subarrays, in a new line, Otherwise If in the given array there exists no such subarray for which the Bitwise OR of the elements within the subarray equals the Bitwise OR of the elements, print a single integer -1, in a new line.
+
+Constraints
+
+
+Sample Input
+2
+6
+1 2 1 2 2 1
+3
+1 2 4 
+Sample Output
+2 4
+-1
+
+
+solutions
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t = sc.nextInt();
+        
+        while(t-- > 0) {
+            
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+            
+            for(int i = 0; i < n; i++) {
+                arr[i] = sc.nextInt();
+            }
+            
+            int minLen = Integer.MAX_VALUE;
+            int count = 0;
+            
+            for(int l = 0; l < n; l++) {
+                
+                for(int r = l; r < n; r++) {
+                    
+                    int insideOR = 0;
+                    int outsideOR = 0;
+                    
+                    for(int i = l; i <= r; i++) {
+                        insideOR |= arr[i];
+                    }
+                    
+                    for(int i = 0; i < l; i++) {
+                        outsideOR |= arr[i];
+                    }
+                    
+                    for(int i = r + 1; i < n; i++) {
+                        outsideOR |= arr[i];
+                    }
+                    
+                    if(insideOR == outsideOR) {
+                        int len = r - l + 1;
+                        
+                        if(len < minLen) {
+                            minLen = len;
+                            count = 1;
+                        } 
+                        else if(len == minLen) {
+                            count++;
+                        }
+                    }
+                }
+            }
+            
+            if(count == 0)
+                System.out.println(-1);
+            else
+                System.out.println(minLen + " " + count);
+        }
+    }
+}
