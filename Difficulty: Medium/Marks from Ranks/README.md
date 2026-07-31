@@ -1,0 +1,10 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/find-marks-from-ranks/1?page=4&category=Searching&sortBy=submissions">Marks from Ranks</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 14pt;">Given three arrays<strong> l[]</strong>, <strong>r[]</strong>, and <strong>rank[]</strong>, where l[i] and r[i] represent the starting and ending marks (inclusive) of the i-th interval. The intervals are sorted in increasing order and do not overlap. The rank of a mark is defined by its position among all valid marks in increasing order, with the smallest mark assigned rank 1, the next smallest rank 2, and so on.</span></p>
+<p><span style="font-size: 14pt;">For each value in rank[], find the corresponding mark and return an array containing the answers in the same order as the queries.</span></p>
+<p><strong>Examples:</strong></p>
+<pre><span style="font-size: 18.6667px;"><strong>Input: </strong>l[] = [1, 6, 14], r[] = [3, 9, 15] ,rank[] = [2, 5, 8]<strong>
+Output: </strong>[2, 7, 14]<strong>
+Explanation: </strong></span><span style="font-size: 18.6667px;">The valid marks are 1, 2, 3, 6, 7, 8, 9, 14, 15. Their corresponding ranks are 1 to 9 in increasing order. Therefore, rank 2 corresponds to mark 2, rank 5 corresponds to mark 7, and rank 8 corresponds to mark 14.</span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input: </strong>l[] = [5, 10], r[] = [7, 12], rank[] = [1, 4, 6]<strong>
+Output: </strong>[5, 10, 12]<strong>
+Explanation: </strong>The valid marks are 5, 6, 7, 10, 11, 12. Their corresponding ranks are 1 to 6 in increasing order. Hence, rank 1 corresponds to mark 5, rank 4 corresponds to mark 10, and rank 6 corresponds to mark 12.</span></pre>
+<p>&nbsp;</p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Searching</code>&nbsp;
